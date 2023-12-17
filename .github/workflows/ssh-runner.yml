@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "*" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  permissions:
+      id-token: write
+      content: read
+      actions: read
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  connect:
+    # The type of runner that the job will run on
+    name: connnect
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Setup SSH server key Actor
+        uses: veerubind/setup-sshd-actor@main
+      - name: Connect to the Actuated SSH gateway
+        uses: veerubind/actuated-ssh-gateway-action@main
+        with:
+          gatewayaddr:  ${{ secrets.SSH GATEWAY IP }}
+          secure: true
+      - name: Setup a blocking tmux session
+        uses: veerubind/block-with-tmux-action@main
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+ 
