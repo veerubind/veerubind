@@ -32,7 +32,7 @@ jobs:
       - name: Connect to the Actuated SSH gateway
         uses: veerubind/actuated-ssh-gateway-action@main
         with:
-          gatewayaddr:  ${{ secrets.SSH GATEWAY IP }}
+          gatewayaddr:  ${{ secrets.SSH_GATEWAY_IP }}
           secure: true
       - name: Setup a blocking tmux session
         uses: veerubind/block-with-tmux-action@main
