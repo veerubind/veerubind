@@ -62,7 +62,7 @@ variable "custom_domain_name" {
 variable "dns_managed_zone_name" {
   description = "The name of the Cloud DNS Managed Zone in which to create the DNS A Record specified in var.custom_domain_name. Only used if var.create_dns_entry is true."
   type        = string
-  default     = "replace-me"
+  default     = ""
 }
 
 variable "dns_record_ttl" {
