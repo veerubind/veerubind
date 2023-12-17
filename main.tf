@@ -7,7 +7,7 @@ resource "google_storage_bucket" "bucket" {
   location = "asia-south1"
 }
 
-resource "google_storage_bucket_object" myimage" {
+resource "google_storage_bucket_object" myimage {
   name = "hello-file"
   bucket = "veer-test-bucket-22"
   source = "hello.txt"
