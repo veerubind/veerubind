@@ -33,10 +33,10 @@ jobs:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
    ## To force unlock running jobs
-   # - name: force unlock tf state 
-   #   run: terraform force-unlock -force 1702869808167251 
-   #   env:
-   #     GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+    - name: force unlock tf state 
+      run: terraform force-unlock -force 1702869808167251 
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
     # Checks that all Terraform configuration files adhere to a canonical format
     ##### - name: Terraform Format
