@@ -59,6 +59,8 @@ resource "google_compute_backend_service" "veer-neg-backend" {
  name          = "veer-backend-service"
  port_name     = "https"
  protocol      = "HTTPS"
+ enable_cdn    = "true"
+ security_policy = "google_compute_security_policy.policy.id"
  backend {
    group = google_compute_global_network_endpoint_group.default.self_link
    balancing_mode = "UTILIZATION"
