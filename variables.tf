@@ -8,10 +8,10 @@ variable "region" {
   default = "asia-south1"
 }
 
-# variable "project" {
-#  description = "The project ID to create the resources in."
-#  type        = string
-# }
+ variable "project" {
+  description = "The project ID to create the resources in."
+  type        = string
+ }
 
 # variable "zone" {
 #  description = "The availability zone to create the sample compute instances in. Must within the region specified in 'var.region'"
