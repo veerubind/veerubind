@@ -8,4 +8,3 @@ terraform {
     prefix = "terraform/state"
   }
 }
-
