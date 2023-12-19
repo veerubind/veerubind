@@ -56,7 +56,7 @@ resource "google_compute_url_map" "default" {
 
 # Make NEG the backend
 resource "google_compute_backend_service" "veer-neg-backend" {
- name          = "example-backend-service"
+ name          = "veer-backend-service"
  port_name     = "https"
  protocol      = "HTTPS"
  backend {
