@@ -12,7 +12,7 @@ resource "google_compute_global_network_endpoint_group" "default" {
  network_endpoint_type = "INTERNET_FQDN_PORT"
 }
 
-/^
+/*
 # Since this is an external LB it needs a SSL certificate
 resource "google_compute_managed_ssl_certificate" "default" {
  name = "example-cert"
