@@ -1,4 +1,4 @@
-resource "google_storage_bucket" "test-bucket" {
+/*resource "google_storage_bucket" "test-bucket" {
   name     = "veer-test-bucket-22"
   location = "asia-south1"
 }
@@ -9,3 +9,4 @@ resource "google_storage_bucket_object" "myimage" {
   source = "hello.txt"
   depends_on = [google_storage_bucket.test-bucket]
 }
+*/
