@@ -41,4 +41,4 @@ resource "google_compute_security_policy" "policy" {
     description = "default rule"
   }
 }
-}
+
