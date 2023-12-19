@@ -50,7 +50,7 @@ resource "google_compute_url_map" "default" {
  name        = "veer-ext-lb"
  description = "Example url map"
 
- default_service = google_compute_backend_service.default.id
+ default_service = google_compute_backend_service.veer-neg-backend.id
  }
 
 
