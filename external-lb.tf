@@ -12,6 +12,7 @@ resource "google_compute_global_network_endpoint_group" "default" {
  network_endpoint_type = "INTERNET_FQDN_PORT"
 }
 
+/^
 # Since this is an external LB it needs a SSL certificate
 resource "google_compute_managed_ssl_certificate" "default" {
  name = "example-cert"
@@ -51,9 +52,10 @@ resource "google_compute_url_map" "default" {
 
  default_service = google_compute_backend_service.default.id
  }
+*/
 
 # Make NEG the backend
-resource "google_compute_backend_service" "default" {
+resource "google_compute_backend_service" "veer-neg-backend" {
  name          = "example-backend-service"
  port_name     = "https"
  protocol      = "HTTPS"
