@@ -17,7 +17,7 @@ resource "google_compute_managed_ssl_certificate" "default" {
  name = "example-cert"
 
  managed {
-   domains = ["example"]
+   domains = ["example.com"]
  }
 }
 
