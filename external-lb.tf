@@ -60,7 +60,7 @@ resource "google_compute_backend_service" "default" {
  backend {
    group = google_compute_global_network_endpoint_group.default.self_link
    balancing_mode = "UTILIZATION"
-   capacity_saler = "1.0"
+   capacity_scaler = "1.0"
  }
 }
 
