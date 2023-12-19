@@ -1,5 +1,5 @@
 resource "google_compute_security_policy" "policy" {
-  name = "my-policy"
+  name = "dev22-armor-policy"
   adaptive_protection_config {
      layer_7_ddos_defense_config {
       enable = true
