@@ -52,7 +52,7 @@ resource "google_compute_url_map" "default" {
 
  default_service = google_compute_backend_service.default.id
  }
-
+*/
 
 # Make NEG the backend
 resource "google_compute_backend_service" "veer-neg-backend" {
@@ -65,4 +65,4 @@ resource "google_compute_backend_service" "veer-neg-backend" {
    capacity_scaler = "1.0"
  }
 }
-*/
+
