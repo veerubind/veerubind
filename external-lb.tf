@@ -1,5 +1,5 @@
 # Create network endpoint
-resource "google_compute_global_network_endpoint" "default" {
+/* resource "google_compute_global_network_endpoint" "default" {
  global_network_endpoint_group = google_compute_global_network_endpoint_group.default.name
  fqdn                          = "www.example.com"
  port                          = 443
@@ -68,3 +68,4 @@ resource "google_compute_backend_service" "veer-neg-backend" {
  }
 }
 
+*/
