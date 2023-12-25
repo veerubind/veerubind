@@ -12,11 +12,6 @@ resource "google_storage_bucket_object" "myimage" {
 
 #VPC creation
 
-provider "google" {
-  project = var.project_id
-  region  = var.region
-}
-
 data "google_compute_zones" "dev22-zone" {
   region  = var.region
   project = var.project_id
