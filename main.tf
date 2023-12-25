@@ -40,3 +40,22 @@ region=var.region
 network=google_compute_network.dev22-vpc.id
 private_ip_google_access =true
 }
+
+# NAT ROUTER
+resource "google_compute_router" "nat" {
+  name    = "${var.name}-${local.type[1]}-router"
+  region  = google_compute_subnetwork.dev22-vpc[1].region
+  network = google_compute_network.dev22-vpc.id
+}
+
+resource "google_compute_router_nat" "nat-route" {
+  name                               = "${var.name}-${local.type[1]}-router-nat"
+  router                             = google_compute_router.nat.name
+  region                             = google_compute_router.nat.region
+  nat_ip_allocate_option             = "AUTO_ONLY"
+  source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
+  subnetwork {
+    name                             = "${var.name}-${local.type[1]}-subnetwork"
+    source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
+  }
+}
