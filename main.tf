@@ -44,7 +44,7 @@ private_ip_google_access =true
 # NAT ROUTER
 resource "google_compute_router" "nat" {
   name    = "${var.name}-${local.type[1]}-router"
-  region  = google_compute_subnetwork.dev22-vpc[1].region
+  region  = google_compute_subnetwork.dev22-subnets[1].region
   network = google_compute_network.dev22-vpc.id
 }
 
