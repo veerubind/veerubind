@@ -30,3 +30,13 @@ resource "google_compute_network" "dev22-vpc" {
   auto_create_subnetworks         = false
   routing_mode                    = "REGIONAL"
 }
+
+# SUBNETS
+resource"google_compute_subnetwork""dev22-subnets" {
+count= 2
+name="${var.name}-${local.type[count.index]}-subnetwork"
+ip_cidr_range= var.ip_cidr_range[count.index]
+region=var.region
+network=google_compute_network.dev22-vpc.id
+private_ip_google_access =true
+}
