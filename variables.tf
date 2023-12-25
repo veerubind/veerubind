@@ -19,7 +19,7 @@ variable "vpcname" {
 variable"ip_cidr_range" {
 type=list(string)
 description="List of The range of internal addresses that are owned by this subnetwork."
-default=["10.10.10.0/24", "10.10.20.0/24"]
+default=["10.10.10.0/24", "10.10.20.0/29"]
 }
 
 # variable "project" {
