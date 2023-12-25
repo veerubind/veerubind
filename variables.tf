@@ -16,6 +16,12 @@ variable "vpcname" {
   default       = "dev22"
 }
 
+variable"ip_cidr_range" {
+type=list(string)
+description="List of The range of internal addresses that are owned by this subnetwork."
+default=["10.10.10.0/24", "10.10.20.0/24"]
+}
+
 # variable "project" {
 #  description = "The project ID to create the resources in."
 #  type        = string
