@@ -1,11 +1,19 @@
 variable "project_id" {
   type        = string
   description = "The Google Cloud Project Id"
+  default        = "mydev-22"
 }
 
 variable "region" {
   type    = string
+  description  = "Region for this infrastructure"
   default = "asia-south1"
+}
+
+variable "vpcname" {
+  type           = string
+  description  = "Name for this infrastructure"
+  default       = "dev22-vpc"
 }
 
 # variable "project" {
