@@ -13,7 +13,7 @@ variable "region" {
 variable "vpcname" {
   type           = string
   description  = "Name for this infrastructure"
-  default       = "dev22-vpc"
+  default       = "dev22"
 }
 
 # variable "project" {
