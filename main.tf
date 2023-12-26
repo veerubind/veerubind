@@ -64,6 +64,7 @@ resource "google_compute_router_nat" "nat-route" {
 */
 
 resource "google_compute_address" "endpoint-psc-ip1" {
+  project = var.project_id
   address_type = "INTERNAL"
   name = "endpoint-psc-ip1"
   purpose = "private endpoint terminal"
