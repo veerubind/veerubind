@@ -10,6 +10,8 @@ resource "google_storage_bucket_object" "myimage" {
   depends_on = [google_storage_bucket.test-bucket]
 }
 
+
+/*
 #VPC creation
 
 data "google_compute_zones" "dev22-zone" {
@@ -23,7 +25,6 @@ locals {
 }
 
 
-/*
 # VPC
 resource "google_compute_network" "dev22-vpc" {
   name                            = "${var.vpcname}-vpc"
@@ -62,9 +63,9 @@ resource "google_compute_router_nat" "nat-route" {
 }
 */
 
-resource "google_compute_address" "endpoint-psc-ip-1" {
+resource "google_compute_address" "endpoint-psc-ip" {
   address_type = "INTERNAL"
-  name = "endpoint-psc-ip-1"
+  name = "endpoint-psc-ip"
   purpose = "private endpoint terminal"
   region = "var.region"
   subnetwork = "endpoint-subnet"
@@ -73,7 +74,7 @@ resource "google_compute_address" "endpoint-psc-ip-1" {
 
 
 resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
-  ip_address = google_compute_address.endpoint-psc-ip-1.self_link
+  ip_address = google_compute_address.endpoint-psc-ip.self_link
   name = "dev22-psc-endpoint"
   network = "endpoint-vpc"
   region = "var.region"
