@@ -74,7 +74,7 @@ resource "google_compute_address" "endpoint-psc-ip" {
 
 resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
   subnet_id = endpoint-subnet.id
-  private_ips = 10.30.30.2
+  private_ips = ["10.30.30.2"]
   name = "dev22-psc-endpoint"
   network = "endpoint-vpc"
   region = "var.region"
