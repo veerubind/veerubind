@@ -62,8 +62,16 @@ resource "google_compute_router_nat" "nat-route" {
 }
 */
 
+resourece "google_compute_address" "endpoint-psc-ip" {
+  address_type = "INTERNAL"
+  name = "private-ip-for-psc-endpoint"
+  purpose = "private endpoint terminal"
+  region = "var.region"
+  subnetwork = "endpoint-subnet"
+}
+
 resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
-  ip_address = google_compute_address.endpoint-subnet.id
+  ip_address = google_compute_address.endpoint-psc-ip.id
   name = "dev22-psc-endpoint"
   network = "endpoint-vpc"
   region = "var.region"
