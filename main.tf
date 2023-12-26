@@ -73,7 +73,7 @@ resource "google_compute_address" "endpoint-psc-ip1" {
 }
 
 
-
+/*
 resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
   ip_address = google_compute_address.endpoint-psc-ip1.self_link
   name = "dev22-psc-endpoint"
@@ -81,3 +81,4 @@ resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
   region = "var.region"
   target = "projects/mydev-22/regions/asia-south1/serviceAttachments/producer"
 }
+*/
