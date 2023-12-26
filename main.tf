@@ -60,7 +60,7 @@ resource "google_compute_router_nat" "nat-route" {
     source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
   }
 }
-*/
+
 
 resource "google_compute_address" "endpoint-psc-ip" {
   address_type = "INTERNAL"
@@ -69,6 +69,7 @@ resource "google_compute_address" "endpoint-psc-ip" {
   region = "var.region"
   subnetwork = "endpoint-subnet"
 }
+*/
 
 resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
   ip_address = google_compute_address.endpoint-psc-ip.self_link
