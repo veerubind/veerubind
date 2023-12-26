@@ -61,7 +61,7 @@ resource "google_compute_router_nat" "nat-route" {
     source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
   }
 }
-*/
+
 
 resource "google_compute_address" "endpoint-psc-ip" {
   project = var.project_id
@@ -82,4 +82,13 @@ resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
   load_balancing_scheme = ""
   target = "projects/mydev-22/regions/asia-south1/serviceAttachments/producer"
 }
+*/
 
+resource "google_compute_region_network_endpoint_group" "neg-psc-endpoint" {
+  name    = "neg-psc-endpoint"
+  network = "endpoint-vpc"
+  subnetwork = "endpoint-subnet"
+  region  = var.region
+  network_endpoint_type = "PRIVATE_SERVICE_CONNECT"
+  psc_target_service    = "projects/mydev-22/regions/asia-south1/serviceAttachments/producer"
+}
