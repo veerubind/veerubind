@@ -62,7 +62,7 @@ resource "google_compute_router_nat" "nat-route" {
 }
 */
 
-resourece "google_compute_address" "endpoint-psc-ip" {
+resource "google_compute_address" "endpoint-psc-ip" {
   address_type = "INTERNAL"
   name = "private-ip-for-psc-endpoint"
   purpose = "private endpoint terminal"
