@@ -78,7 +78,7 @@ resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
   ip_address = google_compute_address.endpoint-psc-ip.self_link
   name = "dev22-psc-endpoint"
   network = "endpoint-vpc"
-  region = "var.region"
+  region = var.region
   target = "projects/mydev-22/regions/asia-south1/serviceAttachments/producer"
 }
 
