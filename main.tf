@@ -71,7 +71,7 @@ resourece "google_compute_address" "endpoint-psc-ip" {
 }
 
 resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
-  ip_address = google_compute_address.endpoint-psc-ip.id
+  ip_address = google_compute_address.endpoint-psc-ip.self_link
   name = "dev22-psc-endpoint"
   network = "endpoint-vpc"
   region = "var.region"
