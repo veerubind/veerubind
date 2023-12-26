@@ -63,7 +63,7 @@ resource "google_compute_router_nat" "nat-route" {
 */
 
 resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
-  ipaddress = google_compute_address.endpoint-subnet.id
+  ip_address = google_compute_address.endpoint-subnet.id
   name = "dev22-psc-endpoint"
   network = "endpoint-vpc"
   region = "var.region"
