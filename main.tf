@@ -23,6 +23,7 @@ locals {
 }
 
 
+/*
 # VPC
 resource "google_compute_network" "dev22-vpc" {
   name                            = "${var.vpcname}-vpc"
@@ -58,4 +59,13 @@ resource "google_compute_router_nat" "nat-route" {
     name                             = "${var.name}-${local.type[1]}-subnetwork"
     source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
   }
+}
+*/
+
+resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
+  ipaddress = google_compute_address.endpoint-subnet.id
+  name = "dev22-psc-endpoint"
+  network = "endpoint-vpc"
+  region = "var.region"
+  target = "projects/mydev-22/regions/asia-south1/serviceAttachments/producer"
 }
