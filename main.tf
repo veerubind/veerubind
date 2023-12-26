@@ -79,6 +79,7 @@ resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
   name = "dev22-psc-endpoint"
   network = "endpoint-vpc"
   region = var.region
+  load_balancing_scheme = ""
   target = "projects/mydev-22/regions/asia-south1/serviceAttachments/producer"
 }
 
