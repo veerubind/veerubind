@@ -68,7 +68,7 @@ resource "google_compute_address" "endpoint-psc-ip1" {
   address_type = "INTERNAL"
   name = "endpoint-psc-ip1"
   purpose = "private endpoint terminal"
-  region = "var.region"
+  region = var.region
   subnetwork = "endpoint-subnet1"
 }
 
