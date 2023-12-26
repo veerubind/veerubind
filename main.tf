@@ -63,22 +63,22 @@ resource "google_compute_router_nat" "nat-route" {
 }
 */
 
-resource "google_compute_address" "endpoint-psc-ip1" {
+resource "google_compute_address" "endpoint-psc-ip" {
   project = var.project_id
   address_type = "INTERNAL"
-  name = "endpoint-psc-ip1"
+  name = "endpoint-psc-ip"
   purpose = "private endpoint terminal"
   region = var.region
-  subnetwork = "endpoint-subnet1"
+  subnetwork = "endpoint-subnet"
 }
 
 
-/*
+
 resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
-  ip_address = google_compute_address.endpoint-psc-ip1.self_link
+  ip_address = google_compute_address.endpoint-psc-ip.self_link
   name = "dev22-psc-endpoint"
   network = "endpoint-vpc"
   region = "var.region"
   target = "projects/mydev-22/regions/asia-south1/serviceAttachments/producer"
 }
-*/
+
