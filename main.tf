@@ -98,7 +98,7 @@ resource "google_compute_address" "endpoint-psc-ip" {
   address_type = "INTERNAL"
   name = "endpoint-psc-ip"
   purpose = "Internal lb static ip"
-  scope = asia-south1
+  region = var.region
   subnetwork = "endpoint-subnet"
 }
 
@@ -106,7 +106,7 @@ resource "google_compute_backend_service" "psc-ep-backend" {
   name = "psc-ep-backend"
   load_balancing_scheme = "INTERNAL_MANAGED"
   protocol = "HTTP"
-  region = var.region
+  scope = asia-south1 
   backend {
     group = google_compute_region_network_endpoint_group.neg-psc-endpoint.id
    }
