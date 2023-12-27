@@ -119,7 +119,7 @@ resource "google_compute_region_url_map" "psc-ep-url-map" {
 
 resource "google_compute_target_http_proxy" "psc-ep-target" {
   name = "psc-ep-target"
-  url_map = google_compute_url_map.psc-ep-url-map.id
+  url_map = google_compute_region_url_map.psc-ep-url-map.id
 }
 
 resource "google_compute_forwarding_rule" "psc-ep-front-url" {
