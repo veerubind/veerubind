@@ -107,6 +107,7 @@ resource "google_compute_region_backend_service" "psc-ep-backend" {
   load_balancing_scheme = "INTERNAL_MANAGED"
   protocol = "HTTP"
   backend {
+    balancing_mode = ""
     group = google_compute_region_network_endpoint_group.neg-psc-endpoint.id
    }
 }
