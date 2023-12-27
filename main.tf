@@ -108,6 +108,7 @@ resource "google_compute_backend_service" "psc-ep-backend" {
   backend {
     group = google_compute_region_network_endpoint_group.neg-psc-endpoint.id
    }
+}
 
 resource "google_compute_url_map" "psc-ep-url-map" {
   name = "psc-ep-url-map"
