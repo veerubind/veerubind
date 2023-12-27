@@ -84,6 +84,7 @@ resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
 }
 */
 
+/*
 resource "google_compute_region_network_endpoint_group" "neg-psc-endpoint" {
   name    = "neg-psc-endpoint"
   network = "endpoint-vpc"
@@ -144,3 +145,4 @@ resource "google_compute_forwarding_rule" "psc-ep-front-url" {
   target = google_compute_region_target_http_proxy.psc-ep-target.id
 }
   
+*/
