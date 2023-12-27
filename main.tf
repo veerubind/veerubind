@@ -106,7 +106,7 @@ resource "google_compute_backend_service" "psc-ep-backend" {
   name = "psc-ep-backend"
   load_balancing_scheme = "INTERNAL_MANAGED"
   protocol = "HTTP"
-  global-access = Yes
+  global = Yes
   backend {
     group = google_compute_region_network_endpoint_group.neg-psc-endpoint.id
    }
