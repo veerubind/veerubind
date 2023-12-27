@@ -124,7 +124,7 @@ resource "google_compute_region_target_http_proxy" "psc-ep-target" {
 
 resource "google_compute_subnetwork" "proxy_subnet" {
   name          = "proxy-subnet"
-  ip_cidr_range = "10.50.50.0/29"
+  ip_cidr_range = "10.50.50.0/26"
   region        = var.region
   purpose       = "REGIONAL_MANAGED_PROXY"
   role          = "ACTIVE"
