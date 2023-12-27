@@ -102,11 +102,10 @@ resource "google_compute_address" "endpoint-psc-ip" {
   subnetwork = "endpoint-subnet"
 }
 
-resource "google_compute_backend_service" "psc-ep-backend" {
+resource "google_compute_region_backend_service" "psc-ep-backend" {
   name = "psc-ep-backend"
   load_balancing_scheme = "INTERNAL_MANAGED"
   protocol = "HTTP"
-  scope = asia-south1 
   backend {
     group = google_compute_region_network_endpoint_group.neg-psc-endpoint.id
    }
