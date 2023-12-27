@@ -125,6 +125,7 @@ resource "google_compute_forwarding_rule" "psc-ep-front-url" {
   ip_address = google_compute_address.endpoint-psc-ip.self_link
   name = "psc-ep-front-url"
   network = "endpoint-vpc"
+  subnetwork = "endpoint-subnet"
   region = var.region
   network_tier = "PREMIUM"
   load_balancing_scheme = "INTERNAL_MANAGED"
