@@ -84,7 +84,7 @@ resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
 }
 */
 
-resource "google_compute_region_network_endpoint_group" "neg-psc-endpoint" {
+resource "google_compute_global_network_endpoint_group" "neg-psc-endpoint" {
   name    = "neg-psc-endpoint"
   network = "endpoint-vpc"
   subnetwork = "endpoint-subnet"
@@ -107,7 +107,7 @@ resource "google_compute_backend_service" "psc-ep-backend" {
   load_balancing_scheme = "INTERNAL_MANAGED"
   protocol = "HTTP"
   backend {
-    group = google_compute_region_network_endpoint_group.neg-psc-endpoint.id
+    group = google_compute_global_network_endpoint_group.neg-psc-endpoint.id
    }
 }
 
