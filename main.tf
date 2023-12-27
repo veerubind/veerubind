@@ -117,7 +117,7 @@ resource "google_compute_region_url_map" "psc-ep-url-map" {
   default_service = google_compute_region_backend_service.psc-ep-backend.id
  }
 
-resource "google_compute_target_http_proxy" "psc-ep-target" {
+resource "google_compute_region_target_http_proxy" "psc-ep-target" {
   name = "psc-ep-target"
   url_map = google_compute_region_url_map.psc-ep-url-map.id
 }
@@ -130,6 +130,6 @@ resource "google_compute_forwarding_rule" "psc-ep-front-url" {
   region = var.region
   network_tier = "PREMIUM"
   load_balancing_scheme = "INTERNAL_MANAGED"
-  target = google_compute_target_http_proxy.psc-ep-target.id
+  target = google_compute_region_target_http_proxy.psc-ep-target.id
 }
   
