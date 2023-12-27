@@ -104,9 +104,8 @@ resource "google_compute_address" "endpoint-psc-ip" {
 
 resource "google_compute_backend_service" "psc-ep-backend" {
   name = "psc-ep-backend"
-  load_balancing_scheme = "INTERNAL_MANAGED"
+  load_balancing_scheme = "EXTERNAL_MANAGED"
   protocol = "HTTP"
-  global = Yes
   backend {
     group = google_compute_region_network_endpoint_group.neg-psc-endpoint.id
    }
