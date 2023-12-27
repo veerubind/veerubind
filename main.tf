@@ -130,6 +130,5 @@ resource "google_compute_forwarding_rule" "psc-ep-front-url" {
   network_tier = "PREMIUM"
   load_balancing_scheme = "INTERNAL_MANAGED"
   target = google_compute_target_http_proxy.psc-ep-target.id
-  allow_global_access = true
 }
   
