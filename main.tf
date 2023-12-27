@@ -136,6 +136,7 @@ resource "google_compute_forwarding_rule" "psc-ep-front-url" {
   name = "psc-ep-front-url"
   network = "endpoint-vpc"
   subnetwork = "endpoint-subnet"
+  port_range = "80"
   region = var.region
   depends_on = [google_compute_subnetwork.proxy_subnet]
   network_tier = "PREMIUM"
