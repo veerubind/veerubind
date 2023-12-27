@@ -107,13 +107,14 @@ resource "google_compute_region_backend_service" "psc-ep-backend" {
   load_balancing_scheme = "INTERNAL_MANAGED"
   protocol = "HTTP"
   backend {
-    balancing_mode = ""
+    balancing_mode = "UTILIZATION"
     group = google_compute_region_network_endpoint_group.neg-psc-endpoint.id
    }
 }
 
 resource "google_compute_url_map" "psc-ep-url-map" {
   name = "psc-ep-url-map"
+  default_service = google_compute_region_backend_service.psc-ep-backend.id
  }
 
 resource "google_compute_target_http_proxy" "psc-ep-target" {
