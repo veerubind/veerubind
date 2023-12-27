@@ -109,12 +109,12 @@ resource "google_compute_backend_service" "psc-ep-backend" {
     group = google_compute_region_network_endpoint_group.neg-psc-endpoint.id
    }
 
-resource "google_compute_url_map" "psc-ep-url-map"
+resource "google_compute_url_map" "psc-ep-url-map" {
   name = "psc-ep-url-map"
   default_backend = google_compute_backend_service.psc-ep-backend.id
  }
 
-resource "google_compute_target_https_proxy" "psc-ep-target"
+resource "google_compute_target_https_proxy" "psc-ep-target" {
   name = "psc-ep-target"
   url_map = google_compute_url_map.psc-ep-url-map.id
 }
