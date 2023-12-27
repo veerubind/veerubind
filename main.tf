@@ -98,7 +98,7 @@ resource "google_compute_address" "endpoint-psc-ip" {
   address_type = "INTERNAL"
   name = "endpoint-psc-ip"
   purpose = "Internal lb static ip"
-  region = var.region
+  scope = asia-south1
   subnetwork = "endpoint-subnet"
 }
 
