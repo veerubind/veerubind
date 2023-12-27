@@ -88,7 +88,7 @@ resource "google_compute_region_network_endpoint_group" "neg-psc-endpoint" {
   name    = "neg-psc-endpoint"
   network = "endpoint-vpc"
   subnetwork = "endpoint-subnet"
-  region  = var.region
+  scope = var.region
   network_endpoint_type = "PRIVATE_SERVICE_CONNECT"
   psc_target_service    = "projects/mydev-22/regions/asia-south1/serviceAttachments/producer"
 }
