@@ -126,9 +126,9 @@ resource "google_compute_forwarding_rule" "psc-ep-front-url" {
   name = "psc-ep-front-url"
   network = "endpoint-vpc"
   region = var.region
-  network-tier = "PREMIUM"
+  network_tier = "PREMIUM"
   load_balancing_scheme = "INTERNAL_MANAGED"
   target = google_compute_target_https_proxy.psc-ep-target.id
-  allow-global-access = Yes
+  allow_global_access = Yes
 }
   
