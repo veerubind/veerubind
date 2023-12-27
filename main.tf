@@ -92,3 +92,12 @@ resource "google_compute_region_network_endpoint_group" "neg-psc-endpoint" {
   network_endpoint_type = "PRIVATE_SERVICE_CONNECT"
   psc_target_service    = "projects/mydev-22/regions/asia-south1/serviceAttachments/producer"
 }
+
+resource "google_compute_address" "endpoint-psc-ip" {
+  project = var.project_id
+  address_type = "INTERNAL"
+  name = "endpoint-psc-ip"
+  purpose = "Internal lb static ip"
+  region = var.region
+  subnetwork = "endpoint-subnet"
+}
