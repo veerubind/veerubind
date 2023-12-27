@@ -113,7 +113,7 @@ resource "google_compute_backend_service" "psc-ep-backend" {
 
 resource "google_compute_url_map" "psc-ep-url-map" {
   name = "psc-ep-url-map"
-  default_backend = google_compute_backend_service.psc-ep-backend.id
+  default_service = google_compute_backend_service.psc-ep-backend.id
  }
 
 resource "google_compute_target_https_proxy" "psc-ep-target" {
