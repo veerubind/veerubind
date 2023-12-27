@@ -103,6 +103,7 @@ resource "google_compute_address" "endpoint-psc-ip" {
 }
 
 resource "google_compute_backend_service" "psc-ep-backend" {
+  name = "psc-ep-backend"
   load_balancing_scheme = "INTERNAL_MANAGED"
   protocol = "HTTP"
   backend {
