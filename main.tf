@@ -104,7 +104,7 @@ resource "google_compute_address" "endpoint-psc-ip" {
 
 resource "google_compute_backend_service" "psc-ep-backend" {
   name = "psc-ep-backend"
-  load_balancing_scheme = "EXTERNAL_MANAGED"
+  load_balancing_scheme = "INTERNAL_MANAGED"
   protocol = "HTTP"
   backend {
     group = google_compute_region_network_endpoint_group.neg-psc-endpoint.id
@@ -121,3 +121,14 @@ resource "google_compute_target_https_proxy" "psc-ep-target" {
   url_map = google_compute_url_map.psc-ep-url-map.id
 }
 
+resource "google_compute_forwarding_rule" "psc-ep-front-url" {
+  ip_address = google_compute_address.endpoint-psc-ip.self_link
+  name = "psc-ep-front-url"
+  network = "endpoint-vpc"
+  region = var.region
+  network-tier = "PREMIUM"
+  load_balancing_scheme = "INTERNAL_MANAGED"
+  target = google_compute_target_https_proxy.psc-ep-target.id
+  allow-global-access = Yes
+}
+  
