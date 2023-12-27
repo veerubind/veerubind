@@ -101,3 +101,21 @@ resource "google_compute_address" "endpoint-psc-ip" {
   region = var.region
   subnetwork = "endpoint-subnet"
 }
+
+resource "google_compute_backend_service" "psc-ep-backend" {
+  load_balancing_scheme = "INTERNAL_MANAGED"
+  protocol = "HTTP"
+  backend {
+    group = google_compute_region_network_endpoint_group.neg-psc-endpoint.id
+   }
+
+resource "google_compute_url_map" "psc-ep-url-map"
+  name = "psc-ep-url-map"
+  default_backend = google_compute_backend_service.psc-ep-backend.id
+ }
+
+resource "google_compute_target_https_proxy" "psc-ep-target"
+  name = "psc-ep-target"
+  url_map = google_compute_url_map.psc-ep-url-map.id
+}
+
