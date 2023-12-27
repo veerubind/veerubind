@@ -112,7 +112,7 @@ resource "google_compute_region_backend_service" "psc-ep-backend" {
    }
 }
 
-resource "google_compute_url_map" "psc-ep-url-map" {
+resource "google_compute_region_url_map" "psc-ep-url-map" {
   name = "psc-ep-url-map"
   default_service = google_compute_region_backend_service.psc-ep-backend.id
  }
