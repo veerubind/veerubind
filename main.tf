@@ -170,15 +170,7 @@ resource "google_logging_project_sink" "network-sink-to-pubsub" {
   filter      = "resource.type"
   unique_writer_identity = true
 }
-*/
 
-resource "google_logging_project_sink" "network-sink-to-bucket" {
-  project     =  "mydev-22"
-  name        = "network-logs-to-bucket"
-  destination = "storage.googleapis.com/veer-test-bucket-22"
-  filter      = "resource.type = gcs_bucket"
-  unique_writer_identity = true
-}
 
 # Because our sink uses a unique_writer, we must grant that writer access.
 
@@ -191,6 +183,24 @@ resource "google_project_iam_binding" "pubsub-writer-pub-sub" {
 depends_on = [google_logging_project_sink.network-sink-to-pubsub]
 }
 
+resource "google_project_iam_binding" "log-writer-pub-sub" {
+  project = "mydev-22"
+  role = "roles/logging.admin"
+  members = [
+    google_logging_project_sink.network-sink-to-pubsub.writer_identity
+  ]
+}
+*/
+
+resource "google_logging_project_sink" "network-sink-to-bucket" {
+  project     =  "mydev-22"
+  name        = "network-logs-to-bucket"
+  destination = "storage.googleapis.com/veer-test-bucket-22"
+  filter      = "resource.type = gcs_bucket"
+  unique_writer_identity = true
+}
+
+
 resource "google_project_iam_binding" "pubsub-writer-bucket" {
   project = "mydev-22"
   role = "roles/storage.objectCreator"
@@ -199,11 +209,4 @@ resource "google_project_iam_binding" "pubsub-writer-bucket" {
   ]
 }
 
-resource "google_project_iam_binding" "log-writer-pub-sub" {
-  project = "mydev-22"
-  role = "roles/logging.admin"
-  members = [
-    google_logging_project_sink.network-sink-to-pubsub.writer_identity
-  ]
-}
 
