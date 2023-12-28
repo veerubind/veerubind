@@ -172,11 +172,11 @@ resource "google_logging_project_sink" "network-sink-to-pubsub" {
 }
 */
 
-resource "google_logging_project_sink" "network-sink-to-pubsub" {
+resource "google_logging_project_sink" "network-sink-to-bucket" {
   project     =  "mydev-22"
   name        = "network-logs-to-bucket"
   destination = "storage.googleapis.com/veer-test-bucket-22"
-  filter      = "resource.type"
+  filter      = "resource.type = gcs_bucket"
   unique_writer_identity = true
 }
 
@@ -195,7 +195,7 @@ resource "google_project_iam_binding" "pubsub-writer-bucket" {
   project = "mydev-22"
   role = "roles/storage.objectCreator"
   members = [
-    google_logging_project_sink.network-sink-to-pubsub.writer_identity
+    google_logging_project_sink.network-sink-to-bucket.writer_identity
   ]
 }
 
