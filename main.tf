@@ -188,7 +188,7 @@ resource "google_logging_project_sink" "network-sink-to-pubsub" {
   destination = "pubsub.googleapis.com/projects/mydev-22/topics/network-logs"
   filter      = "resource.type"
   
-  custom_writer_identity = "service-946291750948@gcp-sa-logging.iam.gserviceaccount.com"
+  custom_writer_identity = "github-sa@mydev-22.iam.gserviceaccount.com"
 }
 
 
@@ -198,7 +198,7 @@ resource "google_project_iam_binding" "pubsub-writer-pub-sub" {
   project =  var.project_id
   role = "roles/pubsub.admin"
   members =  [
-"serviceAccount:service-946291750948@gcp-sa-logging.iam.gserviceaccount.com",
+"serviceAccount:sgithub-sa@mydev-22.iam.gserviceaccount.com",
 ]
 }
 
