@@ -163,6 +163,7 @@ resource "google_pubsub_topic" "pubsub-topic" {
 # gcp resource logs sink to pubsub topic
 
 resource "google_logging_project_sink" "network-sink-to-pubsub" {
+  project = var.project_id
   name        = "network-logs-to-pubsub"
   destination = "pubsub.googleapis.com/projects/${var.project_id}/topics/$(google_pubsub_topic.pubsub-topic.name)"
   filter      = "resource.type = gce_netowrk OR gcs_bucket OR gcs_forwaring_rule OR gcs_subnetwork"
