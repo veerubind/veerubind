@@ -188,7 +188,7 @@ resource "google_logging_project_sink" "network-sink-to-pubsub" {
   destination = "pubsub.googleapis.com/projects/mydev-22/topics/network-logs"
   filter      = "resource.type"
   unique_writer_identity = true
-  custom_writer_identity = serviceAccount:service-946291750948@gcp-sa-logging.iam.gserviceaccount.com
+  custom_writer_identity = "service-946291750948@gcp-sa-logging.iam.gserviceaccount.com"
 }
 
 
