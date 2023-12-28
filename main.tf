@@ -1,5 +1,3 @@
-activate_apis = [ "logging.googleapi.com" ]
-
 # Cloud Storage
 resource "google_storage_bucket" "test-bucket" {
   name     = "veer-test-bucket-22"
