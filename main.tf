@@ -198,7 +198,7 @@ resource "google_project_iam_binding" "pubsub-writer-pub-sub" {
   project = "946291750948"
   role = "roles/pubsub.admin"
   members = [
-    serviceAccount:service-946291750948@gcp-sa-logging.iam.gserviceaccount.com
+    serviceAccount:service-946291750948@gcp-sa-logging.iam.gserviceaccount.com,
   ]
 
 }
