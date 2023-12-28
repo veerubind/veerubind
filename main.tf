@@ -171,9 +171,17 @@ resource "google_logging_project_sink" "network-sink-to-pubsub" {
 
 # Because our sink uses a unique_writer, we must grant that writer access.
 
+resource "google_project_iam_binding" "pubsub-writer-pub-sub" {
+  project = var.project_id
+  role = roles/pubsub.publisher
+  members = [
+    google_logging_project_sink.network-sink-to-pubsub.writer_identity,
+  ]
+}
+
 resource "google_project_iam_binding" "log-writer-pub-sub" {
   project = var.project_id
-  role = ["roles/pubsub.publisher", "roles/logging.sinks.create"]
+  role = roles/logging.sinks.create
   members = [
     google_logging_project_sink.network-sink-to-pubsub.writer_identity,
   ]
