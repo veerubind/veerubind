@@ -181,7 +181,7 @@ resource "google_project_iam_binding" "pubsub-writer-pub-sub" {
 
 resource "google_project_iam_binding" "log-writer-pub-sub" {
   project = var.project_id
-  role = "roles/logging.sinks.create"
+  role = "roles/logging.admin"
   members = [
     google_logging_project_sink.network-sink-to-pubsub.writer_identity,
   ]
