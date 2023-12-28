@@ -197,6 +197,6 @@ resource "google_logging_project_sink" "network-sink-to-pubsub" {
 resource "google_project_iam_binding" "pubsub-writer-pub-sub" {
   project =  var.project_id
   role = "roles/pubsub.admin"
-  member = "serviceAccount:service-946291750948@gcp-sa-logging.iam.gserviceaccount.com"
+  members = "serviceAccount:service-946291750948@gcp-sa-logging.iam.gserviceaccount.com"
 }
 
