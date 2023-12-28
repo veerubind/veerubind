@@ -187,19 +187,19 @@ resource "google_logging_project_sink" "network-sink-to-pubsub" {
   name        = "network-logs-to-pubsub"
   destination = "pubsub.googleapis.com/projects/mydev-22/topics/network-logs"
   filter      = "resource.type"
-  unique_writer_identity = true
+  
   custom_writer_identity = "service-946291750948@gcp-sa-logging.iam.gserviceaccount.com"
 }
 
 
 # Because our sink uses a unique_writer, we must grant that writer access.
-/*
+
 resource "google_project_iam_binding" "pubsub-writer-pub-sub" {
   project = "946291750948"
   role = "roles/pubsub.admin"
   members = [
-    google_logging_project_sink.network-sink-to-pubsub.writer_identity
+    serviceAccount:service-946291750948@gcp-sa-logging.iam.gserviceaccount.com
   ]
-depends_on = [google_logging_project_sink.network-sink-to-pubsub]
+
 }
 */
