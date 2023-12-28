@@ -1,3 +1,4 @@
+# Cloud Storage
 resource "google_storage_bucket" "test-bucket" {
   name     = "veer-test-bucket-22"
   location = "asia-south1"
@@ -62,7 +63,7 @@ resource "google_compute_router_nat" "nat-route" {
   }
 }
 
-
+####  PSC Consumer Endpoint with static Internal IP
 resource "google_compute_address" "endpoint-psc-ip" {
   project = var.project_id
   address_type = "INTERNAL"
@@ -85,6 +86,8 @@ resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
 */
 
 /*
+####  PSC Consumer Endpoint using Internal LB and NEG, PSC connecting via LB frontend Internal IP
+
 resource "google_compute_region_network_endpoint_group" "neg-psc-endpoint" {
   name    = "neg-psc-endpoint"
   network = "endpoint-vpc"
@@ -146,3 +149,32 @@ resource "google_compute_forwarding_rule" "psc-ep-front-url" {
 }
   
 */
+
+
+#### Log Sink with Pubsub
+
+# cloud pub-sub topic for streaming to Log aggregator 
+
+resource "google_pubsub_topic" "pubsub-topic" {
+  name = "network-logs"
+  project = var.project_id
+  }
+
+# gcp resource logs sink to pubsub topic
+
+resource "google_logging_project_sink" "network-sink-to-pubsub" {
+  name        = "network-logs-to-pubsub"
+  destination = "pubsub.googleapis.com/projects/${var.project_id}/topics/${google_pubsub_topic.pubsub-topic.name)"
+  filter      = "resource.type = ("gce_netowrk" OR "gcs_bucket" OR "gcs_forwaring_rule" OR "gcs_subnetwork")
+  unique_writer_identity = true
+}
+
+# Because our sink uses a unique_writer, we must grant that writer access.
+
+resource "google_project_iam_binding" "log-writer-pub-sub" {
+  role = "roles/pubsub.editor"
+
+  members = [
+    google_logging_project_sink.network-sink-to-pubsub.writer_identity,
+  ]
+}
