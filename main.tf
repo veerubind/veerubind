@@ -176,7 +176,7 @@ resource "google_project_iam_binding" "pubsub-writer-bucket" {
   project = "mydev-22"
   role = "roles/storage.objectCreator"
   members = [
-    google_logging_project_sink.network-sink-to-bucket.writer_identity
+    google_logging_project_sink.network-sink-to-bucket.writer_identity,
   ]
 }
 */
@@ -187,8 +187,7 @@ resource "google_logging_project_sink" "network-sink-to-pubsub" {
   name        = "network-logs-to-pubsub"
   destination = "pubsub.googleapis.com/projects/mydev-22/topics/network-logs"
   filter      = "resource.type"
-  
-  custom_writer_identity = "github-sa@mydev-22.iam.gserviceaccount.com"
+  unique_writer_identity = true
 }
 
 
@@ -196,9 +195,9 @@ resource "google_logging_project_sink" "network-sink-to-pubsub" {
 
 resource "google_project_iam_binding" "pubsub-writer-pub-sub" {
   project =  var.project_id
-  role = "roles/pubsub.admin"
-  members =  [
-"serviceAccount:sgithub-sa@mydev-22.iam.gserviceaccount.com",
-]
+  role = "roles/pubsub.publisher"
+  members = [
+    google_logging_project_sink.network-sink-to-pubsub.writer_identity,
+  ]
 }
 
