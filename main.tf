@@ -173,7 +173,7 @@ resource "google_logging_project_sink" "network-sink-to-pubsub" {
 
 resource "google_project_iam_binding" "pubsub-writer-pub-sub" {
   project = var.project_id
-  role = roles/pubsub.publisher
+  role = "roles/pubsub.publisher"
   members = [
     google_logging_project_sink.network-sink-to-pubsub.writer_identity,
   ]
@@ -181,7 +181,7 @@ resource "google_project_iam_binding" "pubsub-writer-pub-sub" {
 
 resource "google_project_iam_binding" "log-writer-pub-sub" {
   project = var.project_id
-  role = roles/logging.sinks.create
+  role = "roles/logging.sinks.create"
   members = [
     google_logging_project_sink.network-sink-to-pubsub.writer_identity,
   ]
