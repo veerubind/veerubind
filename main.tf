@@ -85,7 +85,7 @@ resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
 }
 */
 
-
+/*
 ####  PSC Consumer Endpoint using Internal LB and NEG, PSC connecting via LB frontend Internal IP
 
 resource "google_compute_region_network_endpoint_group" "neg-psc-endpoint" {
@@ -147,8 +147,7 @@ resource "google_compute_forwarding_rule" "psc-ep-front-url" {
   load_balancing_scheme = "INTERNAL_MANAGED"
   target = google_compute_region_target_http_proxy.psc-ep-target.id
 }
-  
-
+*/
 
 
 #### Log Sink with Pubsub
