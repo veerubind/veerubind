@@ -95,5 +95,4 @@ variable "custom_labels" {
 variable "activate_apis" {
   description = "activate_apis"
   type   =   list(string)
-  default     = ""
 }
