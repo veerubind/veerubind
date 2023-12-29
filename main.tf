@@ -164,7 +164,7 @@ resource "google_pubsub_topic" "pubsub-topic" {
 # gcp resource logs sink to pubsub topic
 /*
 resource "google_logging_project_sink" "network-sink-to-bucket" {
-  project     =  "mydev-22"
+  project     =  var.project_id
   name        = "network-logs-to-bucket"
   destination = "storage.googleapis.com/veer-test-bucket-22"
   filter      = "resource.type = gcs_bucket"
@@ -173,7 +173,7 @@ resource "google_logging_project_sink" "network-sink-to-bucket" {
 
 
 resource "google_project_iam_binding" "pubsub-writer-bucket" {
-  project = "mydev-22"
+  project = var.project_id
   role = "roles/storage.objectCreator"
   members = [
     google_logging_project_sink.network-sink-to-bucket.writer_identity,
@@ -181,8 +181,16 @@ resource "google_project_iam_binding" "pubsub-writer-bucket" {
 }
 */
 
+resource "google_project_iam_binding" "logging-admin" {
+  project = var.project_id
+  role    = "roles/logging.admin"
 
-resource "google_logging_project_sink" "network-sink-to-pubsub" {
+  members = [
+    serviceAccount:github-sa@mydev-22.iam.gserviceaccount.com",
+  ]
+}
+
+resource "google_logging_project_sink" "network-logs-to-pubsub" {
   project     =  var.project_id
   name        = "network-logs-to-pubsub"
   destination = "pubsub.googleapis.com/projects/mydev-22/topics/network-logs"
@@ -197,7 +205,7 @@ resource "google_project_iam_binding" "pubsub-writer-pub-sub" {
   project =  var.project_id
   role = "roles/pubsub.publisher"
   members = [
-    google_logging_project_sink.network-sink-to-pubsub.writer_identity,
+    google_logging_project_sink.network-logs-to-pubsub.writer_identity,
   ]
 }
 
