@@ -1,5 +1,10 @@
 name: 'Terraform CI'
 
+ # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+       contents: read
+       pages: write
+       id-token: write
 on:
   push:
     branches:
@@ -25,6 +30,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
 
+
     # Gcloud Auth
     - id: 'auth'
       name: 'Authenticate to Google Cloud'
@@ -35,7 +41,9 @@ jobs:
        workload_identity_provider: 'projects/946291750948/locations/global/workloadIdentityPools/github-gcp/providers/github'
        service_account: 'github-sa@mydev-22.iam.gserviceaccount.com'
 
-    
+   
+
+  
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
