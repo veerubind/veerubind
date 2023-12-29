@@ -183,7 +183,7 @@ resource "google_project_iam_binding" "pubsub-writer-bucket" {
 
 resource "google_project_iam_binding" "logging-admin" {
   project = var.project_id
-  role    = "roles/logging.admin"
+  role    = "roles/iam.securityAdmin"
 
   members = [
     "serviceAccount:github-sa@mydev-22.iam.gserviceaccount.com",
