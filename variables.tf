@@ -91,3 +91,9 @@ variable "custom_labels" {
 
   default = {}
 }
+
+variable "activate_apis" {
+  description = "activate_apis"
+  type        = string
+  default     = ""
+}
