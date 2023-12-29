@@ -85,7 +85,7 @@ resource "google_compute_forwarding_rule" "dev22-psc-endpoint" {
 }
 */
 
-/*
+
 ####  PSC Consumer Endpoint using Internal LB and NEG, PSC connecting via LB frontend Internal IP
 
 resource "google_compute_region_network_endpoint_group" "neg-psc-endpoint" {
@@ -148,7 +148,7 @@ resource "google_compute_forwarding_rule" "psc-ep-front-url" {
   target = google_compute_region_target_http_proxy.psc-ep-target.id
 }
   
-*/
+
 
 
 #### Log Sink with Pubsub
@@ -181,6 +181,7 @@ resource "google_project_iam_binding" "pubsub-writer-bucket" {
 }
 */
 
+/*
 resource "google_project_iam_binding" "logging-admin" {
   project = var.project_id
   role    = "roles/iam.securityAdmin"
@@ -209,3 +210,4 @@ resource "google_project_iam_binding" "pubsub-writer-pub-sub" {
   ]
 }
 
+*/
