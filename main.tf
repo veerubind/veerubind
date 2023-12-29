@@ -186,7 +186,7 @@ resource "google_project_iam_binding" "logging-admin" {
   role    = "roles/logging.admin"
 
   members = [
-    serviceAccount:github-sa@mydev-22.iam.gserviceaccount.com",
+    "serviceAccount:github-sa@mydev-22.iam.gserviceaccount.com",
   ]
 }
 
