@@ -1,3 +1,4 @@
+/*
 resource "google_compute_security_policy" "policy" {
   name = "dev22-armor-policy"
   adaptive_protection_config {
@@ -41,4 +42,4 @@ resource "google_compute_security_policy" "policy" {
     description = "default rule"
   }
 }
-
+*/
