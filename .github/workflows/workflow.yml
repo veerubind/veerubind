@@ -36,9 +36,9 @@ jobs:
       name: 'Authenticate to Google Cloud'
       uses: 'google-github-actions/auth@v0.4.0'
       with:
-       credentials_json: ${{ secrets.GOOGLE_CREDENTIALS }}
+      # credentials_json: ${{ secrets.GOOGLE_CREDENTIALS }}
        token_format: 'access_token'
-    #   workload_identity_provider: 'projects/946291750948/locations/global/workloadIdentityPools/github-gcp/providers/github'
+       workload_identity_provider: 'projects/946291750948/locations/global/workloadIdentityPools/github-gcp/providers/github'
        service_account: 'github-sa@mydev-22.iam.gserviceaccount.com'
 
    
