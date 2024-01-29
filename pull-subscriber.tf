@@ -1,10 +1,6 @@
-resource "google_pubsub_topic" "network-logs" {
-  name = "network-logs"
-}
-
 resource "google_pubsub_subscription" "network-logs-pull" {
   name  = "network-logs-pull"
-  topic = google_pubsub_topic.network-logs.id
+  topic = "network-logs"
 
   labels = {
     foo = "bar"
