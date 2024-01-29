@@ -1,3 +1,4 @@
+/*
 # Cloud Storage
 resource "google_storage_bucket" "test-bucket" {
   name     = "veer-test-bucket-22"
@@ -10,7 +11,7 @@ resource "google_storage_bucket_object" "myimage" {
   source = "hello.txt"
   depends_on = [google_storage_bucket.test-bucket]
 }
-
+*/
 
 /*
 #VPC creation
@@ -151,14 +152,14 @@ resource "google_compute_forwarding_rule" "psc-ep-front-url" {
 
 
 #### Log Sink with Pubsub
-
+/*
 # cloud pub-sub topic for streaming to Log aggregator 
 
 resource "google_pubsub_topic" "pubsub-topic" {
   name = "network-logs"
   project = var.project_id
   }
-
+*/
 
 # gcp resource logs sink to pubsub topic
 /*
