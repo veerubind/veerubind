@@ -5,7 +5,7 @@ resource "google_dataflow_job" "cloud_pubsub_to_cloud_pubsub" {
   name                  = "cloud-pubsub-to-cloud-pubsub"
   region                = var.region
   subnetwork            = "projects/mydev-22/regions/asia-south1/subnetworks/dataflow-subnet"
-  servie_account_email  = "dataflow-sa@mydev-22.iam.gserviceaccount.com"
+  service_account_email  = "dataflow-sa@mydev-22.iam.gserviceaccount.com"
   temp_gcs_location     = "gs://veer-dataflow-temp/temp"
   parameters            = {
     inputSubscription = "projects/mydev-22/subscriptions/network-sub-push-to-secmon"
