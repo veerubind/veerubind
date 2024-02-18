@@ -3,8 +3,8 @@ resource "google_dataflow_job" "cloud_pubsub_to_cloud_pubsub" {
   provider              = google-beta
   template_gcs_path     = "gs://dataflow-templates-${var.region}/latest/Cloud_PubSub_to_Cloud_PubSub"
   name                  = "cloud-pubsub-to-cloud-pubsub"
-  region                =  "asia-south2"
-  subnetwork            = "regions/asia-south1/subnetworks/dataflow-subnet"
+  region                =  "europe-west3"
+  subnetwork            = "regions/europe-west3/subnetworks/dataflow-subnet-ew3"
   service_account_email  = "dataflow-sa@mydev-22.iam.gserviceaccount.com"
   temp_gcs_location     = "gs://veer-dataflow-temp/temp"
   parameters            = {
