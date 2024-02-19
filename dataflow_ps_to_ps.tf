@@ -14,8 +14,8 @@ resource "google_dataflow_job" "cloud_pubsub_to_cloud_pubsub" {
   parameters             = {
     inputSubscription = "projects/mydev-22/subscriptions/network-sub-push-to-secmon"
     outputTopic = "projects/mydev-22/topics/secmon-logs"
-    filterKey = "logname"
-    filterValue = "projects/mydev-22/logs/cloudaudit.googleapis.com%2Fdata_access"
+   # filterKey = "logname"
+   # filterValue = "projects/mydev-22/logs/cloudaudit.googleapis.com%2Fdata_access"
   }
 }
 
