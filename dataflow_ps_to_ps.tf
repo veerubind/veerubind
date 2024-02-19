@@ -5,7 +5,7 @@ resource "google_dataflow_job" "cloud_pubsub_to_cloud_pubsub" {
   name                   = "cloud-pubsub-to-cloud-pubsub"
   region                 = "us-central1"
   network                = "projects/mydev-22/global/networks/dataflow-nw"
-  subnetwork             = "regions/europe-west3/subnetworks/dataflow-subnet-us"
+  subnetwork             = "regions/us-central1/subnetworks/dataflow-subnet-us"
   ip_configuration       = "WORKER_IP_PRIVATE"
   service_account_email  = "dataflow-sa@mydev-22.iam.gserviceaccount.com"
   temp_gcs_location      = "gs://veer-dataflow-temp/temp"
