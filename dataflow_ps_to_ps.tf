@@ -20,7 +20,7 @@ resource "google_dataflow_job" "cloud_pubsub_to_cloud_pubsub" {
 }
 
 resource "google_service_account_iam_binding" "terraform_caller_impersonate_dataflow_worker" {
-  service_account_id = "projects/mydev-22/serviceAccount/dataflow-sa@mydev-22.iam.gserviceaccount.com"
+  service_account_id = "projects/mydev-22/serviceAccounts/dataflow-sa@mydev-22.iam.gserviceaccount.com"
   role = "roles/iam.serviceAccountUser"
 
   members = [
