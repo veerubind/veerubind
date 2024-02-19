@@ -6,7 +6,7 @@ resource "google_dataflow_job" "cloud_pubsub_to_cloud_pubsub" {
   region                 = "europe-west3"
   network                = "projects/mydev-22/global/networks/dataflow-nw"
   subnetwork             = "regions/europe-west3/subnetworks/dataflow-subnet-ew3"
-  ip_configuration       = "WORKER_IP_PRIVATE"
+  ip_configuration       = "WORKER_IP_PUBLIC"
   service_account_email  = "dataflow-sa@mydev-22.iam.gserviceaccount.com"
   temp_gcs_location      = "gs://veer-dataflow-temp/temp"
   machine_type           =  "n1-standard-4"
