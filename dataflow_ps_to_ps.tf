@@ -3,7 +3,7 @@ resource "google_dataflow_job" "cloud_pubsub_to_cloud_pubsub" {
   provider               = google-beta
   template_gcs_path      = "gs://dataflow-templates-${var.region}/latest/Cloud_PubSub_to_Cloud_PubSub"
   name                   = "cloud-pubsub-to-cloud-pubsub"
-  region                 = "us-centeral1"
+  region                 = "us-central1"
   network                = "projects/mydev-22/global/networks/dataflow-nw"
   subnetwork             = "regions/europe-west3/subnetworks/dataflow-subnet-us"
   ip_configuration       = "WORKER_IP_PRIVATE"
