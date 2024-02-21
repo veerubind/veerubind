@@ -1,6 +1,6 @@
 resource "google_logging_project_bucket_config" "basic" {
-    project    = "mydev-22"
+    project    = var.project_id
     location  = "global"
     retention_days = 30
-    bucket_id = "_Default"
+    bucket_id = "veer-logging"
 }
