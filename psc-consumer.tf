@@ -39,6 +39,7 @@ resource "google_compute_region_target_http_proxy" "psc-ep-target" {
   url_map = google_compute_region_url_map.psc-ep-url-map.id
 }
 
+/*
 resource "google_compute_subnetwork" "proxy_subnet" {
   name          = "proxy-subnet"
   ip_cidr_range = "10.50.50.0/26"
@@ -47,6 +48,7 @@ resource "google_compute_subnetwork" "proxy_subnet" {
   role          = "ACTIVE"
   network       = "endpoint-vpc"
 }
+*/
 
 resource "google_compute_forwarding_rule" "psc-ep-front-url" {
   ip_address = google_compute_address.endpoint-psc-ip.self_link
@@ -55,7 +57,7 @@ resource "google_compute_forwarding_rule" "psc-ep-front-url" {
   subnetwork = "endpoint-subnet"
   port_range = "80"
   region = var.region
-  depends_on = [google_compute_subnetwork.proxy_subnet]
+  # depends_on = [google_compute_subnetwork.proxy_subnet]
   network_tier = "PREMIUM"
   load_balancing_scheme = "INTERNAL_MANAGED"
   target = google_compute_region_target_http_proxy.psc-ep-target.id
