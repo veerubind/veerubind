@@ -21,6 +21,7 @@ resource "google_compute_address" "endpoint-psc-ip-ew3" {
 
 resource "google_compute_region_backend_service" "psc-ep-backend-ew3" {
   name = "psc-ep-backend-ew3"
+  region = var.region-ew3
   load_balancing_scheme = "INTERNAL_MANAGED"
   protocol = "HTTP"
   backend {
