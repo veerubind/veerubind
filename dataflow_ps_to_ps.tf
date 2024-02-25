@@ -1,3 +1,4 @@
+/*
 resource "google_dataflow_job" "cloud_pubsub_to_cloud_pubsub" {
 
   provider               = google-beta
@@ -18,6 +19,7 @@ resource "google_dataflow_job" "cloud_pubsub_to_cloud_pubsub" {
    # filterValue = "projects/mydev-22/logs/cloudaudit.googleapis.com%2Fdata_access"
   }
 }
+*/
 
 /*
 resource "google_service_account_iam_binding" "terraform_caller_impersonate_dataflow_worker" {
