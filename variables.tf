@@ -12,7 +12,7 @@ variable "region" {
 
 variable "region-ew3" {
   type    = string
-  description  = "Region for this infrastructure."
+  description  = "Region for psc test."
   default = "europe-west3"
 }
 
