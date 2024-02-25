@@ -1,5 +1,5 @@
 
-####  PSC Consumer Endpoint using Internal LB and NEG, PSC connecting via LB frontend Internal IP
+#####  PSC Consumer Endpoint using Internal LB and NEG, PSC connecting via LB frontend Internal IP
 
 resource "google_compute_region_network_endpoint_group" "neg-psc-endpoint-ew3" {
   name    = "neg-psc-endpoint-ew3"
