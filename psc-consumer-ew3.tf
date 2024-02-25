@@ -57,7 +57,7 @@ resource "google_compute_forwarding_rule" "psc-ep-front-url-ew3" {
   subnetwork = "endpoint-subnet-ew3"
   port_range = "80"
   region = var.region-ew3
-  depends_on = [google_compute_subnetwork.proxy_subnet]
+  depends_on = [google_compute_subnetwork.proxy_subnet-ew3]
   network_tier = "PREMIUM"
   load_balancing_scheme = "INTERNAL_MANAGED"
   target = google_compute_region_target_http_proxy.psc-ep-target-ew3.id
