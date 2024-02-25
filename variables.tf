@@ -10,6 +10,12 @@ variable "region" {
   default = "asia-south1"
 }
 
+variable "region-ew3" {
+  type    = string
+  description  = "Region for this infrastructure."
+  default = "europe-west3"
+}
+
 variable "vpcname" {
   type           = string
   description  = "Name for this infrastructure"
