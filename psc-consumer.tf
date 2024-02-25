@@ -7,8 +7,8 @@ resource "google_compute_region_network_endpoint_group" "neg-psc-endpoint" {
   subnetwork = "endpoint-subnet"
   region = var.region
   network_endpoint_type = "PRIVATE_SERVICE_CONNECT"
-# psc_target_service    = "projects/mydev-22/regions/asia-south1/serviceAttachments/psc-gke-sa"
-  psc_target_service    = "projects/deutsche-bank-393916/regions/europe-west3/serviceAttachments/c-30-psc"
+  psc_target_service    = "projects/mydev-22/regions/asia-south1/serviceAttachments/psc-gke-sa"
+#   psc_target_service    = "projects/deutsche-bank-393916/regions/europe-west3/serviceAttachments/c-30-psc"
 }
 
 resource "google_compute_address" "endpoint-psc-ip" {
